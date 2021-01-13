@@ -17,6 +17,9 @@ func _on_Host_pressed():
 	else:
 		print("server created")
 	get_tree().network_peer = network
+	Global.rpc("add_player", 1)
+	Global.id = 1
+	_error = get_tree().change_scene("res://PlayerIntegration/PlayerGeneration/ColorSelector.tscn")
 
 func _on_Join_pressed():
 	var network := NetworkedMultiplayerENet.new()
@@ -26,6 +29,7 @@ func _on_Join_pressed():
 	else:
 		print("client created")
 	get_tree().network_peer = network
+	_error = get_tree().change_scene("res://PlayerIntegration/PlayerGeneration/ColorSelector.tscn")
 
 func _connected_to_server():
 	print("Connected OK")
@@ -35,7 +39,8 @@ func _connection_failed():
 
 func _player_connected(id:int):
 	print("player connected")
-	Global.players[id] = Color(0,0,0,255)
+	Global.rpc("add_player", id)
+	Global.id = id
 
 func _player_disconnected(id):
 	_error = Global.players.erase(id)
