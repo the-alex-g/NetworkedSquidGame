@@ -11,3 +11,4 @@ func _process(_delta):
 	if color != null:
 		$AnimationPlayer.stop()
 		$SquidBody/ColoredSquidParts.modulate = color
+		$SquidBody/Sprite.hide()

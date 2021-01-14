@@ -29,7 +29,7 @@ __meta__ = {
 }
 
 [node name="Particles" type="CPUParticles2D" parent="."]
-amount = 50
+amount = 20
 lifetime = 5.0
 preprocess = 5.0
 texture = ExtResource( 1 )
@@ -39,7 +39,7 @@ initial_velocity = 50.0
 color_ramp = SubResource( 1 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 50
+amount = 20
 lifetime = 5.0
 preprocess = 5.0
 texture = ExtResource( 1 )
@@ -49,7 +49,7 @@ initial_velocity = 50.0
 color_ramp = SubResource( 2 )
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-amount = 50
+amount = 20
 lifetime = 5.0
 preprocess = 5.0
 texture = ExtResource( 1 )

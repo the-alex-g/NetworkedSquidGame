@@ -18,7 +18,7 @@ func _on_Host_pressed():
 		print("server created")
 	get_tree().network_peer = network
 	Global.add_player(1)
-	_error = get_tree().change_scene("res://PlayerIntegration/PlayerGeneration/ColorSelector.tscn")
+	next()
 
 func _on_Join_pressed():
 	var network := NetworkedMultiplayerENet.new()
@@ -29,7 +29,7 @@ func _on_Join_pressed():
 		print("client created")
 	get_tree().network_peer = network
 	yield(get_tree().create_timer(0.1), "timeout")
-	_error = get_tree().change_scene("res://PlayerIntegration/PlayerGeneration/ColorSelector.tscn")
+	next()
 
 func _connected_to_server():
 	print("Connected OK")
@@ -47,3 +47,10 @@ func _player_disconnected(id:int):
 
 func _server_connection_lost():
 	print("server connection lost")
+
+func next():
+	$VBoxContainer/Host.hide()
+	$VBoxContainer/Join.hide()
+	$VBoxContainer/Host.disabled = true
+	$VBoxContainer/Join.disabled = true
+	$AnimationPlayer.play("CameraSlide")

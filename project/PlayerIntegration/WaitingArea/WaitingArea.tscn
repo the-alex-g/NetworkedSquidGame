@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://PlayerIntegration/WaitingArea/WaitingArea.gd" type="Script" id=1]
 [ext_resource path="res://PlayerIntegration/WaitingArea/PlayerIndicator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Art/Particles.tscn" type="PackedScene" id=3]
 
 [node name="WaitingArea" type="Control"]
 anchor_right = 1.0
@@ -10,6 +11,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Particles" parent="." instance=ExtResource( 3 )]
 
 [node name="StartButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -26,16 +29,16 @@ __meta__ = {
 }
 
 [node name="PlayerIndicators" type="Node2D" parent="."]
+position = Vector2( 350, 350 )
 
 [node name="PlayerIndicator0" parent="PlayerIndicators" instance=ExtResource( 2 )]
-position = Vector2( 150, 210 )
-
-[node name="PlayerIndicator1" parent="PlayerIndicators" instance=ExtResource( 2 )]
-position = Vector2( 270, 210 )
 
 [node name="PlayerIndicator2" parent="PlayerIndicators" instance=ExtResource( 2 )]
-position = Vector2( 400, 210 )
+rotation = 1.5708
+
+[node name="PlayerIndicator1" parent="PlayerIndicators" instance=ExtResource( 2 )]
+rotation = 3.14159
 
 [node name="PlayerIndicator3" parent="PlayerIndicators" instance=ExtResource( 2 )]
-position = Vector2( 530, 210 )
+rotation = 4.71239
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

@@ -29,6 +29,10 @@ __meta__ = {
 
 [node name="Particles" parent="." instance=ExtResource( 2 )]
 
+[node name="ColorSelector" parent="." instance=ExtResource( 3 )]
+margin_top = -349.627
+margin_bottom = -349.627
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -59,12 +63,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorSelector" parent="." instance=ExtResource( 3 )]
-margin_top = -349.627
-margin_bottom = -349.627
-
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 350, 350 )
+current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/CameraSlide = SubResource( 1 )
