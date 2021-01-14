@@ -13,7 +13,7 @@ export var blend_amount := 4
 var color:Color
 var id:int
 var shooting := false
-var time_elapsed
+var cooling_down := false
 
 func _ready():
 	var shoot_anim_length = $AnimationPlayer.get_animation("Shoot").length
@@ -21,9 +21,15 @@ func _ready():
 	_squid.modulate = color
 
 func _process(delta):
-	if not shooting:
-		time_elapsed = 0
+	if not shooting and not cooling_down:
 		_animation_player.set("parameters/Blend2/blend_amount", 0)
+	elif not shooting and cooling_down:
+		if _animation_player.get("parameters/Blend2/blend_amount") > 0:
+			var current_blend = _animation_player.get("parameters/Blend2/blend_amount")
+			var new_blend = current_blend - delta*blend_amount
+			_animation_player.set("parameters/Blend2/blend_amount", new_blend)
+		else:
+			cooling_down = false
 	elif shooting:
 		if _animation_player.get("parameters/Blend2/blend_amount") < 1:
 			var current_blend = _animation_player.get("parameters/Blend2/blend_amount")
@@ -38,9 +44,6 @@ func _process(delta):
 		if Input.is_action_just_pressed("shoot"):
 			rpc("spawn_bullet")
 			spawn_bullet()
-			shooting = true
-			rset("shooting", true)
-			_anim_change_timer.start()
 		rotation_degrees += direction
 		rpc_unreliable("update_position", rotation_degrees)
 
@@ -53,6 +56,8 @@ remote func spawn_bullet():
 	bullet.position = _bullet_spawn_point.get_global_transform().origin
 	bullet.player_who_shot = id
 	bullet.color = color
+	shooting = true
+	_anim_change_timer.start()
 	get_tree().get_root().add_child(bullet)
 
 func _draw():
@@ -60,4 +65,4 @@ func _draw():
 
 func _on_Timer_timeout():
 	shooting = false
-	rset("shooting", false)
+	cooling_down = true

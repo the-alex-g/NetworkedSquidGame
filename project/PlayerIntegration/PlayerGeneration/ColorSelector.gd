@@ -7,7 +7,6 @@ onready var _green_slider := $VBoxContainer/G
 onready var _rvalue := $VBoxContainer2/RLabel
 onready var _bvalue := $VBoxContainer2/BLabel
 onready var _gvalue := $VBoxContainer2/GLabel
-onready var _color_display := $ColorRect
 
 var _r := 1.0
 var _b := 1.0
@@ -23,7 +22,7 @@ func _process(_delta):
 	_b = _blue_slider.value/255.0
 	_g = _green_slider.value/255.0
 	color = Color(_r, _g, _b, 1.0)
-	_color_display.color = color
+	$SquidBody/ColoredSquidParts.modulate = color
 
 func _on_ConfirmButton_pressed():
 	Global.rpc("set_player_color", get_tree().get_network_unique_id(), color)
