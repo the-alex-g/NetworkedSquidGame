@@ -1,0 +1,114 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "Wave_Arms"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SquidBody/ColoredSquidParts/Arms/Arm1/LowerArm:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1, 2, 3, 4, 5, 6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 44.3464, 21.5138, -36.9293, 11.1374, 26.9546, 24.6714, 11.1346 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SquidBody/ColoredSquidParts/Arms/Arm2/LowerArm:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 2, 3, 4, 5, 6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -15.2743, 24.8206, 45.6116, -18.0915, -4.43868, -18.7186, -10.8457 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SquidBody/ColoredSquidParts/Arms/Arm3/LowerArm:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1, 2, 3, 4, 5, 6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -57.9703, -26.1793, 10.9588, -0.152696, -28.1427, -45.2907, -26.1983 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SquidBody/ColoredSquidParts/Arms/Arm1/LowerArm/UpperArm:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1, 2, 3, 4, 5, 6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -31.9622, 34.3415, 34.3415, 6.5652, -23.8825, 33.2078, -18.7336, 10.2318 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SquidBody/ColoredSquidParts/Arms/Arm1/LowerArm/UpperArm/ArmTip:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1, 2, 3, 4, 5, 6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 8.22215, -48.8996, 31.9382, -4.68189, -29.647, -44.4059, 45.0808, 20.1226 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SquidBody/ColoredSquidParts/Arms/Arm2/LowerArm/UpperArm:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1, 2, 3, 4, 5, 6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 29.1376, -48.1285, 21.4415, -17.6675, -24.4834, 19.99, 51.0097, 23.7737 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SquidBody/ColoredSquidParts/Arms/Arm2/LowerArm/UpperArm/ArmTip:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1, 2, 3, 4, 5, 6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -39.5182, 22.1726, 50.1271, -14.8334, -35.2671, 30.5741, -50.9217, -28.0494 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("SquidBody/ColoredSquidParts/Arms/Arm3/LowerArm/UpperArm:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 1, 2, 3, 4, 5, 6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 86.5008, -35.608, -68.9472, 16.7819, 36.7642, 19.8627, 54.7818, 44.9066 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("SquidBody/ColoredSquidParts/Arms/Arm3/LowerArm/UpperArm/ArmTip:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 1, 2, 3, 4, 5, 6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -88.2299, 37.6281, -38.3505, 23.5925, 26.9617, -4.43363, 30.2859, 24.0556 ]
+}

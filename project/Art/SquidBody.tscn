@@ -1,0 +1,155 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Art/Arm.png" type="Texture" id=1]
+[ext_resource path="res://Art/Eyes.png" type="Texture" id=2]
+[ext_resource path="res://Art/Body.png" type="Texture" id=3]
+
+[node name="SquidBody" type="Node2D"]
+
+[node name="ColoredSquidParts" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite" parent="ColoredSquidParts"]
+position = Vector2( 0, -250 )
+texture = ExtResource( 3 )
+
+[node name="Arms" type="Node2D" parent="ColoredSquidParts"]
+position = Vector2( 0, -230 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Arm1" type="Node2D" parent="ColoredSquidParts/Arms"]
+position = Vector2( -8.74954, -13.1576 )
+
+[node name="LowerArm" type="Sprite" parent="ColoredSquidParts/Arms/Arm1"]
+rotation = 0.455317
+texture = ExtResource( 1 )
+offset = Vector2( 0.264717, 10.5555 )
+hframes = 2
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="UpperArm" type="Sprite" parent="ColoredSquidParts/Arms/Arm1/LowerArm"]
+position = Vector2( 0.132439, 19.3824 )
+rotation = 0.235388
+texture = ExtResource( 1 )
+offset = Vector2( 0.264717, 11.1044 )
+hframes = 2
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="ArmTip" type="Sprite" parent="ColoredSquidParts/Arms/Arm1/LowerArm/UpperArm"]
+position = Vector2( 0, 20 )
+rotation = -0.182031
+texture = ExtResource( 1 )
+offset = Vector2( 0.337944, 10.6534 )
+hframes = 2
+frame = 1
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="ArmBoneTip" type="Position2D" parent="ColoredSquidParts/Arms/Arm1/LowerArm/UpperArm/ArmTip"]
+position = Vector2( 0.295052, 21.7019 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="Arm2" type="Node2D" parent="ColoredSquidParts/Arms"]
+position = Vector2( 0.155945, -13.0487 )
+__meta__ = {
+"_edit_ik_": true
+}
+
+[node name="LowerArm" type="Sprite" parent="ColoredSquidParts/Arms/Arm2"]
+position = Vector2( 0.283539, -0.00624847 )
+rotation = -0.172098
+texture = ExtResource( 1 )
+offset = Vector2( -0.220495, 10.3051 )
+hframes = 2
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="UpperArm" type="Sprite" parent="ColoredSquidParts/Arms/Arm2/LowerArm"]
+position = Vector2( -0.655032, 18.8454 )
+rotation = 0.554448
+texture = ExtResource( 1 )
+offset = Vector2( 0.505268, 11.1384 )
+hframes = 2
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="ArmTip" type="Sprite" parent="ColoredSquidParts/Arms/Arm2/LowerArm/UpperArm"]
+position = Vector2( -0.421749, 20.1393 )
+rotation = -0.00642578
+texture = ExtResource( 1 )
+offset = Vector2( 0.992958, 10.7234 )
+hframes = 2
+frame = 1
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="ArmBoneTip" type="Position2D" parent="ColoredSquidParts/Arms/Arm2/LowerArm/UpperArm/ArmTip"]
+position = Vector2( 1.03453, 21.5969 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Arm3" type="Node2D" parent="ColoredSquidParts/Arms"]
+position = Vector2( 10.1811, -12.661 )
+
+[node name="LowerArm" type="Sprite" parent="ColoredSquidParts/Arms/Arm3"]
+position = Vector2( 0.216103, -0.157135 )
+rotation = -0.604816
+texture = ExtResource( 1 )
+offset = Vector2( 0.117607, 10.3353 )
+hframes = 2
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="UpperArm" type="Sprite" parent="ColoredSquidParts/Arms/Arm3/LowerArm"]
+position = Vector2( -0.166855, 19.6889 )
+rotation = 0.578066
+texture = ExtResource( 1 )
+offset = Vector2( 0.500565, 10.6787 )
+hframes = 2
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="ArmTip" type="Sprite" parent="ColoredSquidParts/Arms/Arm3/LowerArm/UpperArm"]
+position = Vector2( 0.500565, 20.3563 )
+rotation = 0.152693
+texture = ExtResource( 1 )
+offset = Vector2( -0.166855, 10.345 )
+hframes = 2
+frame = 1
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="ArmBoneTip" type="Position2D" parent="ColoredSquidParts/Arms/Arm3/LowerArm/UpperArm/ArmTip"]
+position = Vector2( -0.115082, 21.2346 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="NonColoredSquidParts" type="Node2D" parent="."]
+position = Vector2( 0.00623131, -240.018 )
+
+[node name="Eyes" type="Sprite" parent="NonColoredSquidParts"]
+texture = ExtResource( 2 )
