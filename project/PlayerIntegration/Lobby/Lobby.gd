@@ -13,12 +13,11 @@ func _on_Host_pressed():
 	var network := NetworkedMultiplayerENet.new()
 	_error = network.create_server(4242, 4)
 	if _error != OK:
-		print("server creation failed: "+_error)
+		print("server creation failed: "+str(_error))
 	else:
 		print("server created")
 	get_tree().network_peer = network
-	Global.rpc("add_player", 1)
-	Global.id = 1
+	Global.add_player(1)
 	_error = get_tree().change_scene("res://PlayerIntegration/PlayerGeneration/ColorSelector.tscn")
 
 func _on_Join_pressed():
@@ -29,6 +28,7 @@ func _on_Join_pressed():
 	else:
 		print("client created")
 	get_tree().network_peer = network
+	yield(get_tree().create_timer(0.1), "timeout")
 	_error = get_tree().change_scene("res://PlayerIntegration/PlayerGeneration/ColorSelector.tscn")
 
 func _connected_to_server():
@@ -42,8 +42,8 @@ func _player_connected(id:int):
 	Global.rpc("add_player", id)
 	Global.id = id
 
-func _player_disconnected(id):
-	_error = Global.players.erase(id)
+func _player_disconnected(id:int):
+	_error = Global.rpc("remove_player", id)
 
 func _server_connection_lost():
 	print("server connection lost")

@@ -26,5 +26,5 @@ func _process(_delta):
 	_color_display.color = color
 
 func _on_ConfirmButton_pressed():
-	Global.rpc("set_player_color", Global.id, color)
+	Global.rpc("set_player_color", get_tree().get_network_unique_id(), color)
 	_error = get_tree().change_scene("res://PlayerIntegration/WaitingArea/WaitingArea.tscn")
