@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://PlayerIntegration/Lobby/Lobby.gd" type="Script" id=1]
+[ext_resource path="res://Art/Particles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://PlayerIntegration/PlayerGeneration/ColorSelector.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "CameraSlide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -350 ) ]
+}
 
 [node name="Lobby" type="Control"]
 anchor_right = 1.0
@@ -9,6 +26,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Particles" parent="." instance=ExtResource( 2 )]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -39,5 +58,15 @@ text = "Join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ColorSelector" parent="." instance=ExtResource( 3 )]
+margin_top = -349.627
+margin_bottom = -349.627
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 350, 350 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/CameraSlide = SubResource( 1 )
 [connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_Host_pressed"]
 [connection signal="pressed" from="VBoxContainer/Join" to="." method="_on_Join_pressed"]
