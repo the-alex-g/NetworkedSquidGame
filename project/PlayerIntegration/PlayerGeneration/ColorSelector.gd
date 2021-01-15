@@ -14,6 +14,9 @@ var _g := 1.0
 var color := Color(0,0,0,1)
 var _error
 
+func _ready():
+	$AnimationPlayer.play("Wave_Arms")
+
 func _process(_delta):
 	_rvalue.text = str(_red_slider.value)
 	_bvalue.text = str(_blue_slider.value)

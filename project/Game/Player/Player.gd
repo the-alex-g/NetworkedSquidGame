@@ -42,6 +42,7 @@ func _process(delta):
 			var new_blend = current_blend + delta*blend_amount
 			_animation_player.set("parameters/Blend2/blend_amount", new_blend)
 	if is_network_master():
+		$Label.text = str(Global.score[id]) if Global.score.has(id) else "0"
 		var direction := 0.0
 		if Input.is_action_pressed("counterclockwise"):
 			direction -= 1.0
@@ -75,3 +76,8 @@ func _on_InvincibilityTimer_timeout():
 	invincible = true
 	$Tween.interpolate_property(self, "alpha_value", null, 0.5, 0.5)
 	$Tween.start()
+
+func _on_Player_area_entered(area):
+	if area is Bullet and not invincible:
+		if area.player_who_shot != id:
+			Global.update_score(id)

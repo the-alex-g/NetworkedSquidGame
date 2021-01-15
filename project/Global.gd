@@ -4,6 +4,7 @@ var _error
 var player_ids := []
 var player_colors := {}
 var colors := []
+var score := {}
 var id:int
 
 sync func set_player_color(player_id:int, color:Color):
@@ -20,3 +21,9 @@ sync func add_player(player_id:int):
 sync func remove_player(player_id:int):
 	player_ids.erase(player_id)
 	_error = player_colors.erase(player_id)
+
+func update_score(id):
+	if score.has(id):
+		score[id] += 1
+	else:
+		score[id] = 1
