@@ -14,13 +14,15 @@ var color:Color
 var id:int
 var shooting := false
 var cooling_down := false
+var alpha_value := 1.0
+var invincible := false
 
 func _ready():
 	var shoot_anim_length = $AnimationPlayer.get_animation("Shoot").length
 	_anim_change_timer.wait_time = shoot_anim_length
-	_squid.modulate = color
 
 func _process(delta):
+	_squid.modulate = Color(color.r, color.g, color.b, alpha_value)
 	if not shooting and not cooling_down:
 		_animation_player.set("parameters/Blend2/blend_amount", 0)
 	elif not shooting and cooling_down:
@@ -31,6 +33,10 @@ func _process(delta):
 		else:
 			cooling_down = false
 	elif shooting:
+		invincible = false
+		$Tween.stop_all()
+		$Tween.interpolate_property(self, "alpha_value", null, 1.0, 0.5)
+		$Tween.start()
 		if _animation_player.get("parameters/Blend2/blend_amount") < 1:
 			var current_blend = _animation_player.get("parameters/Blend2/blend_amount")
 			var new_blend = current_blend + delta*blend_amount
@@ -58,11 +64,14 @@ remote func spawn_bullet():
 	bullet.color = color
 	shooting = true
 	_anim_change_timer.start()
+	$InvincibilityTimer.start(2.5)
 	get_tree().get_root().add_child(bullet)
-
-func _draw():
-	draw_circle(Vector2(0,-250), 10.0, color)
 
 func _on_Timer_timeout():
 	shooting = false
 	cooling_down = true
+
+func _on_InvincibilityTimer_timeout():
+	invincible = true
+	$Tween.interpolate_property(self, "alpha_value", null, 0.5, 0.5)
+	$Tween.start()
