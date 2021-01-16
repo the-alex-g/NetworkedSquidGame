@@ -43,7 +43,7 @@ func _process(delta):
 			var new_blend = current_blend + delta*blend_amount
 			_animation_player.set("parameters/Blend2/blend_amount", new_blend)
 	if is_network_master():
-		$Label.text = str(Global.score[id]) if Global.score.has(id) else "0"
+		$Label.text = str(Global.score[color]) if Global.score.has(color) else "0"
 		var direction := 0.0
 		if Input.is_action_pressed("counterclockwise"):
 			direction -= 1.0
@@ -81,4 +81,5 @@ func _on_InvincibilityTimer_timeout():
 func _on_Player_area_entered(area):
 	if area is Bullet and not invincible:
 		if area.color != color:
-			Global.update_score(id)
+			print("Hit by other player's bullet")
+			Global.update_score(area.color)

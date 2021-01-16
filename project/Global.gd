@@ -13,15 +13,15 @@ sync func set_player_color(player_id:int, color:Color):
 
 sync func add_player(player_id:int):
 	player_ids.append(player_id)
-	print(str(player_id))
-	print(str(player_ids))
 
 sync func remove_player(player_id:int):
 	player_ids.erase(player_id)
 	_error = player_colors.erase(player_id)
 
-func update_score(player_id):
-	if score.has(player_id):
-		score[player_id] += 1
+func update_score(color):
+	print(str(color))
+	if score.has(color):
+		score[color] += 1
 	else:
-		score[player_id] = 1
+		score[color] = 1
+	print(str(score))
