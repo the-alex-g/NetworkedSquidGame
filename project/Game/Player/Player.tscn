@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Game/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Art/SquidBody.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/ScoreTracker/RadialProgressBar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Wave_Arms.tres" type="Animation" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -167,14 +168,8 @@ autostart = true
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="Label" type="Label" parent="."]
-margin_left = -7.55957
-margin_top = -312.46
-margin_right = 32.4404
-margin_bottom = -298.46
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="RadialProgressBar" parent="." instance=ExtResource( 3 )]
+position = Vector2( -16, -330 )
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]

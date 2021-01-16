@@ -11,7 +11,6 @@ script = ExtResource( 4 )
 [node name="RadialProgressBar" type="TextureProgress" parent="."]
 margin_right = 32.0
 margin_bottom = 32.0
-value = 1.0
 texture_under = ExtResource( 3 )
 texture_over = ExtResource( 1 )
 texture_progress = ExtResource( 2 )

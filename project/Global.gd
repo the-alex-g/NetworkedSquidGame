@@ -19,9 +19,7 @@ sync func remove_player(player_id:int):
 	_error = player_colors.erase(player_id)
 
 func update_score(color):
-	print(str(color))
 	if score.has(color):
 		score[color] += 1
 	else:
 		score[color] = 1
-	print(str(score))
