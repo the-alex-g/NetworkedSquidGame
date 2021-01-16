@@ -18,6 +18,7 @@ var alpha_value := 1.0
 var invincible := false
 
 func _ready():
+	id = get_tree().get_network_unique_id()
 	var shoot_anim_length = $AnimationPlayer.get_animation("Shoot").length
 	_anim_change_timer.wait_time = shoot_anim_length
 
@@ -61,7 +62,7 @@ remote func spawn_bullet():
 	var bullet := _Bullet.instance()
 	bullet.rotation_degrees = rotation_degrees
 	bullet.position = _bullet_spawn_point.get_global_transform().origin
-	bullet.player_who_shot = id
+	bullet.player_who_shot = get_tree().get_network_unique_id()
 	bullet.color = color
 	shooting = true
 	_anim_change_timer.start()
@@ -79,5 +80,5 @@ func _on_InvincibilityTimer_timeout():
 
 func _on_Player_area_entered(area):
 	if area is Bullet and not invincible:
-		if area.player_who_shot != id:
+		if area.color != color:
 			Global.update_score(id)
