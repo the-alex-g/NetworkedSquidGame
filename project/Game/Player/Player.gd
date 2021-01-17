@@ -7,6 +7,7 @@ onready var _bullet_spawn_point := $BulletSpawnPoint
 onready var _animation_player := $AnimationTree
 onready var _squid := $SquidBody/ColoredSquidParts
 onready var _anim_change_timer := $Timer
+onready var scorebar := $RadialProgressBar/RadialProgressBar
 
 export var blend_amount := 4
 
@@ -20,10 +21,13 @@ var invincible := false
 func _ready():
 	id = get_tree().get_network_unique_id()
 	var shoot_anim_length = $AnimationPlayer.get_animation("Shoot").length
-	$RadialProgressBar/RadialProgressBar.tint_progress = color
+	scorebar.tint_progress = color
+	scorebar.max_value = Global.colors.size()*5
+	scorebar.value = 0
 	_anim_change_timer.wait_time = shoot_anim_length
 
 func _process(delta):
+	scorebar.value = Global.score[color] if Global.score.has(color) else 0
 	_squid.modulate = Color(color.r, color.g, color.b, alpha_value)
 	if not shooting and not cooling_down:
 		_animation_player.set("parameters/Blend2/blend_amount", 0)
