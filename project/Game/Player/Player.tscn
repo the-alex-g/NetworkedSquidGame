@@ -128,10 +128,11 @@ animation = "Wave_Arms"
 [sub_resource type="AnimationNodeBlend2" id=5]
 
 [sub_resource type="AnimationNodeBlendTree" id=6]
+graph_offset = Vector2( 0, -56.75 )
 nodes/Animation/node = SubResource( 4 )
 nodes/Animation/position = Vector2( 140, 80 )
 "nodes/Animation 2/node" = SubResource( 3 )
-"nodes/Animation 2/position" = Vector2( 140, 220 )
+"nodes/Animation 2/position" = Vector2( 120, 200 )
 nodes/Blend2/node = SubResource( 5 )
 nodes/Blend2/position = Vector2( 420, 120 )
 nodes/output/position = Vector2( 660, 120 )

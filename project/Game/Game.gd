@@ -22,7 +22,7 @@ func _ready():
 		_rotation += _rotation_increment
 		_players.add_child(player)
 
-func _process(delta):
+func _process(_delta):
 	var scores := Global.score
 	for score in scores:
 		if scores[score] >= max_score:

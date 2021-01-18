@@ -1,6 +1,9 @@
 extends Control
 
+enum Inputchange {COUNTER, CLOCK, SHOOT, NONE}
+
 var _error
+var _input_change = Inputchange.NONE
 
 func _ready():
 	_error = get_tree().connect("connected_to_server", self, "_connected_to_server")
@@ -8,6 +11,31 @@ func _ready():
 	_error = get_tree().connect("network_peer_connected", self, "_player_connected")
 	_error = get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
 	_error = get_tree().connect("server_disconnected", self, "_server_connection_lost")
+
+func _input(event:InputEvent):
+	if event is InputEventKey:
+		match _input_change:
+			Inputchange.COUNTER:
+				InputMap.action_add_event("counterclockwise", event)
+				_input_change = Inputchange.NONE
+			Inputchange.CLOCK:
+				InputMap.action_add_event("clockwise", event)
+				_input_change = Inputchange.NONE
+			Inputchange.SHOOT:
+				InputMap.action_add_event("shoot", event)
+				_input_change = Inputchange.NONE
+
+func _process(_delta):
+	$HBoxContainer/VBoxContainer2/Counterclockwise.text = "Counterclockwise: "+get_key(InputMap.get_action_list("counterclockwise"))
+	$HBoxContainer/VBoxContainer2/Clockwise.text = "Clockwise: "+get_key(InputMap.get_action_list("clockwise"))
+	$HBoxContainer/VBoxContainer2/Shoot.text = "Shoot: "+get_key(InputMap.get_action_list("shoot"))
+
+func get_key(events:Array)->String:
+	var string := ""
+	for event in events:
+		var code:int = event.scancode
+		string = OS.get_scancode_string(code)
+	return string
 
 func _on_Host_pressed():
 	var network := NetworkedMultiplayerENet.new()
@@ -49,8 +77,33 @@ func _server_connection_lost():
 	print("server connection lost")
 
 func next():
-	$VBoxContainer/Host.hide()
-	$VBoxContainer/Join.hide()
+	$VBoxContainer.hide()
 	$VBoxContainer/Host.disabled = true
 	$VBoxContainer/Join.disabled = true
+	$VBoxContainer/Settings.disabled = true
 	$AnimationPlayer.play("CameraSlide")
+
+func _on_Settings_pressed():
+	$AnimationPlayer.play("Settings")
+	$VBoxContainer.hide()
+
+func _on_Back_pressed():
+	$AnimationPlayer.play("Return")
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "Return":
+		$VBoxContainer.show()
+
+func _on_Counterclockwise_pressed():
+	InputMap.action_erase_events("counterclockwise")
+	_input_change = Inputchange.COUNTER 
+
+func _on_Clockwise_pressed():
+	InputMap.action_erase_events("clockwise")
+	_input_change = Inputchange.CLOCK
+
+func _on_Shoot_pressed():
+	InputMap.action_erase_events("shoot")
+	_input_change = Inputchange.SHOOT
+
+

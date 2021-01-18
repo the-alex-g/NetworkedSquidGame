@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://PlayerIntegration/Lobby/Lobby.gd" type="Script" id=1]
 [ext_resource path="res://Art/Particles.tscn" type="PackedScene" id=2]
@@ -17,6 +17,35 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, -350 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Return"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 350 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 350 ) ]
 }
 
 [node name="Lobby" type="Control"]
@@ -38,16 +67,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -21.0
-margin_top = -24.0
-margin_right = 21.0
-margin_bottom = 24.0
+margin_left = -31.5
+margin_top = -34.0
+margin_right = 31.5
+margin_bottom = 34.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Host" type="Button" parent="VBoxContainer"]
-margin_right = 42.0
+margin_right = 63.0
 margin_bottom = 20.0
 text = "Host"
 __meta__ = {
@@ -56,12 +85,18 @@ __meta__ = {
 
 [node name="Join" type="Button" parent="VBoxContainer"]
 margin_top = 24.0
-margin_right = 42.0
+margin_right = 63.0
 margin_bottom = 44.0
 text = "Join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 63.0
+margin_bottom = 68.0
+text = "Settings"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 350, 350 )
@@ -69,5 +104,101 @@ current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/CameraSlide = SubResource( 1 )
+anims/Return = SubResource( 2 )
+anims/Settings = SubResource( 3 )
+
+[node name="RichTextLabel" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 107.0
+margin_right = 24.0
+margin_bottom = 223.0
+text = "Cuttlefish blood is a green-blue color, because their blood has copper in it instead of iron.
+Cuttlefish have three hearts. Two to pump blood to their gills, and one to pump blood to the rest of the body.
+Cuttlefish have ink like octopuses.
+Cuttlefish have eight (not three) arms and two longer tentacles.
+At least one kind of cuttlefish is proven to benifit from 'sleep'.
+Cuttlefish can change color and texture at will. They can't see color, yet they are able to match their backgrounds.
+"
+
+[node name="Back" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -21.0
+margin_top = 275.0
+margin_right = 21.0
+margin_bottom = 295.0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -143.0
+margin_top = 5.0
+margin_right = 143.0
+margin_bottom = 73.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 58.0
+margin_bottom = 68.0
+
+[node name="Counterclockwise" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_right = 58.0
+margin_bottom = 20.0
+text = "Change"
+
+[node name="Clockwise" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 58.0
+margin_bottom = 44.0
+text = "Change"
+
+[node name="Shoot" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 58.0
+margin_bottom = 68.0
+text = "Change"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 62.0
+margin_right = 286.0
+margin_bottom = 68.0
+alignment = 1
+
+[node name="Counterclockwise" type="Label" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 9.0
+margin_right = 224.0
+margin_bottom = 23.0
+text = "Move Counterclockwise: Left Arrow"
+
+[node name="Clockwise" type="Label" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 27.0
+margin_right = 224.0
+margin_bottom = 41.0
+text = "Move Clockwise: Right Arrow"
+
+[node name="Shoot" type="Label" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 45.0
+margin_right = 224.0
+margin_bottom = 59.0
+text = "Shoot: Space Bar"
+valign = 2
 [connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_Host_pressed"]
 [connection signal="pressed" from="VBoxContainer/Join" to="." method="_on_Join_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Counterclockwise" to="." method="_on_Counterclockwise_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Clockwise" to="." method="_on_Clockwise_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Shoot" to="." method="_on_Shoot_pressed"]

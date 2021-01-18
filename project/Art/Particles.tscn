@@ -23,7 +23,7 @@ position = Vector2( 350, 350 )
 margin_left = -382.0
 margin_top = -781.0
 margin_right = 372.0
-margin_bottom = 369.0
+margin_bottom = 859.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
