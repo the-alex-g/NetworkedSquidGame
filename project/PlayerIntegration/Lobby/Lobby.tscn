@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://PlayerIntegration/Lobby/Lobby.gd" type="Script" id=1]
 [ext_resource path="res://Art/Particles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://PlayerIntegration/PlayerGeneration/ColorSelector.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/Font.tres" type="DynamicFont" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "CameraSlide"
@@ -57,6 +58,7 @@ __meta__ = {
 }
 
 [node name="Particles" parent="." instance=ExtResource( 2 )]
+position = Vector2( 349.333, 348.74 )
 
 [node name="ColorSelector" parent="." instance=ExtResource( 3 )]
 margin_top = -349.627
@@ -76,26 +78,32 @@ __meta__ = {
 }
 
 [node name="Host" type="Button" parent="VBoxContainer"]
-margin_right = 63.0
-margin_bottom = 20.0
+margin_right = 65.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 0, 1, 1 )
 text = "Host"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Join" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
-margin_right = 63.0
-margin_bottom = 44.0
+margin_top = 25.0
+margin_right = 65.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 0, 1, 1 )
 text = "Join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
-margin_top = 48.0
-margin_right = 63.0
-margin_bottom = 68.0
+margin_top = 50.0
+margin_right = 65.0
+margin_bottom = 71.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 0, 1, 1 )
 text = "Settings"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -108,20 +116,26 @@ anims/CameraSlide = SubResource( 1 )
 anims/Return = SubResource( 2 )
 anims/Settings = SubResource( 3 )
 
-[node name="RichTextLabel" type="Label" parent="."]
+[node name="Info" type="Label" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 149.0
-margin_right = 24.0
-margin_bottom = 265.0
+margin_bottom = 282.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 1, 1, 1 )
 text = "Cuttlefish blood is a green-blue color, because their blood has copper in it instead of iron.
 Cuttlefish have three hearts. Two to pump blood to their gills, and one to pump blood to the rest of the body.
 Cuttlefish have ink like octopuses.
 Cuttlefish have eight (not three) arms and two longer tentacles.
 At least one kind of cuttlefish is proven to benifit from 'sleep'.
-Cuttlefish can change color and texture at will. They can't see color, yet they are able to match their backgrounds.
+Cuttlefish can change color and texture at will. They can't see color, yet they are able to match their 
+ backgrounds.
 "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Back" type="Button" parent="."]
 anchor_left = 0.5
@@ -132,6 +146,8 @@ margin_left = -21.0
 margin_top = 317.0
 margin_right = 21.0
 margin_bottom = 337.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 1, 1, 1 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -151,48 +167,60 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 58.0
-margin_bottom = 68.0
+margin_right = 64.0
+margin_bottom = 71.0
 
 [node name="Counterclockwise" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_right = 58.0
-margin_bottom = 20.0
+margin_right = 64.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 1, 1, 1 )
 text = "Change"
 
 [node name="Clockwise" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_top = 24.0
-margin_right = 58.0
-margin_bottom = 44.0
+margin_top = 25.0
+margin_right = 64.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 1, 1, 1 )
 text = "Change"
 
 [node name="Shoot" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_top = 48.0
-margin_right = 58.0
-margin_bottom = 68.0
+margin_top = 50.0
+margin_right = 64.0
+margin_bottom = 71.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 1, 1, 1 )
 text = "Change"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 62.0
-margin_right = 286.0
-margin_bottom = 68.0
+margin_left = 68.0
+margin_right = 307.0
+margin_bottom = 71.0
 alignment = 1
 
 [node name="Counterclockwise" type="Label" parent="HBoxContainer/VBoxContainer2"]
 margin_top = 9.0
-margin_right = 224.0
-margin_bottom = 23.0
+margin_right = 239.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 1, 1, 1 )
 text = "Move Counterclockwise: Left Arrow"
 
 [node name="Clockwise" type="Label" parent="HBoxContainer/VBoxContainer2"]
-margin_top = 27.0
-margin_right = 224.0
-margin_bottom = 41.0
+margin_top = 28.0
+margin_right = 239.0
+margin_bottom = 43.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 1, 1, 1 )
 text = "Move Clockwise: Right Arrow"
 
 [node name="Shoot" type="Label" parent="HBoxContainer/VBoxContainer2"]
-margin_top = 45.0
-margin_right = 224.0
-margin_bottom = 59.0
+margin_top = 47.0
+margin_right = 239.0
+margin_bottom = 62.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 1, 1, 1 )
 text = "Shoot: Space Bar"
 valign = 2
 
@@ -201,6 +229,8 @@ margin_left = 275.0
 margin_top = 783.0
 margin_right = 351.0
 margin_bottom = 823.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 1, 1, 1 )
 text = "Fullscreen"
 __meta__ = {
 "_edit_use_anchors_": false
