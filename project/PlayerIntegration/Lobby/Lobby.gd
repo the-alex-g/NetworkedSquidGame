@@ -106,4 +106,5 @@ func _on_Shoot_pressed():
 	InputMap.action_erase_events("shoot")
 	_input_change = Inputchange.SHOOT
 
-
+func _on_Fullscreen_toggled(button_pressed:bool):
+	OS.window_fullscreen = button_pressed
