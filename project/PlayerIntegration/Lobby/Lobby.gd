@@ -6,6 +6,7 @@ var _error
 var _input_change = Inputchange.NONE
 
 func _ready():
+	$Camera2D.position = Vector2.ZERO
 	_error = get_tree().connect("connected_to_server", self, "_connected_to_server")
 	_error = get_tree().connect("connection_failed", self, "_connection_failed")
 	_error = get_tree().connect("network_peer_connected", self, "_player_connected")
