@@ -81,7 +81,7 @@ __meta__ = {
 margin_right = 65.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 1, 0, 1, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
 text = "Host"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -92,7 +92,7 @@ margin_top = 25.0
 margin_right = 65.0
 margin_bottom = 46.0
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 1, 0, 1, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
 text = "Join"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -103,7 +103,7 @@ margin_top = 50.0
 margin_right = 65.0
 margin_bottom = 71.0
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 1, 0, 1, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
 text = "Settings"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -123,9 +123,10 @@ anchor_bottom = 1.0
 margin_top = 149.0
 margin_bottom = 282.0
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
 text = "Cuttlefish blood is a green-blue color, because their blood has copper in it instead of iron.
-Cuttlefish have three hearts. Two to pump blood to their gills, and one to pump blood to the rest of the body.
+Cuttlefish have three hearts. Two to pump blood to their gills, and one to pump blood to the rest of the
+ body.
 Cuttlefish have ink like octopuses.
 Cuttlefish have eight (not three) arms and two longer tentacles.
 At least one kind of cuttlefish is proven to benifit from 'sleep'.
@@ -147,7 +148,7 @@ margin_top = 317.0
 margin_right = 21.0
 margin_bottom = 337.0
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -174,7 +175,7 @@ margin_bottom = 71.0
 margin_right = 64.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
 text = "Change"
 
 [node name="Clockwise" type="Button" parent="HBoxContainer/VBoxContainer"]
@@ -182,7 +183,7 @@ margin_top = 25.0
 margin_right = 64.0
 margin_bottom = 46.0
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
 text = "Change"
 
 [node name="Shoot" type="Button" parent="HBoxContainer/VBoxContainer"]
@@ -190,7 +191,7 @@ margin_top = 50.0
 margin_right = 64.0
 margin_bottom = 71.0
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
 text = "Change"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
@@ -204,7 +205,7 @@ margin_top = 9.0
 margin_right = 239.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
 text = "Move Counterclockwise: Left Arrow"
 
 [node name="Clockwise" type="Label" parent="HBoxContainer/VBoxContainer2"]
@@ -212,7 +213,7 @@ margin_top = 28.0
 margin_right = 239.0
 margin_bottom = 43.0
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
 text = "Move Clockwise: Right Arrow"
 
 [node name="Shoot" type="Label" parent="HBoxContainer/VBoxContainer2"]
@@ -220,7 +221,7 @@ margin_top = 47.0
 margin_right = 239.0
 margin_bottom = 62.0
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
 text = "Shoot: Space Bar"
 valign = 2
 
@@ -230,7 +231,7 @@ margin_top = 783.0
 margin_right = 351.0
 margin_bottom = 823.0
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
 text = "Fullscreen"
 __meta__ = {
 "_edit_use_anchors_": false
