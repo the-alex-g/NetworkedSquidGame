@@ -236,6 +236,20 @@ text = "Fullscreen"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Address" type="Label" parent="."]
+margin_left = 395.0
+margin_top = 321.0
+margin_right = 492.0
+margin_bottom = 335.0
+text = "127.0.0.1-4242"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 399.0
+margin_top = 345.0
+margin_right = 698.0
+margin_bottom = 385.0
+text = "127.0.0.1-4242"
 [connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_Host_pressed"]
 [connection signal="pressed" from="VBoxContainer/Join" to="." method="_on_Join_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]

@@ -2,10 +2,17 @@ extends Control
 
 enum Inputchange {COUNTER, CLOCK, SHOOT, NONE}
 
+export var _separation_character := "-"
+
 var _error
 var _input_change = Inputchange.NONE
+var _port := 0
+var _code
 
 func _ready():
+	randomize()
+	_port = _generate_port()
+	$Address.text = str(IP.get_local_addresses()[2]+_separation_character+str(_port))
 	$Camera2D.position = Vector2.ZERO
 	_error = get_tree().connect("connected_to_server", self, "_connected_to_server")
 	_error = get_tree().connect("connection_failed", self, "_connection_failed")
@@ -27,6 +34,7 @@ func _input(event:InputEvent):
 				_input_change = Inputchange.NONE
 
 func _process(_delta):
+	_code = $TextEdit.text
 	$HBoxContainer/VBoxContainer2/Counterclockwise.text = "Counterclockwise: "+get_key(InputMap.get_action_list("counterclockwise"))
 	$HBoxContainer/VBoxContainer2/Clockwise.text = "Clockwise: "+get_key(InputMap.get_action_list("clockwise"))
 	$HBoxContainer/VBoxContainer2/Shoot.text = "Shoot: "+get_key(InputMap.get_action_list("shoot"))
@@ -40,7 +48,7 @@ func get_key(events:Array)->String:
 
 func _on_Host_pressed():
 	var network := NetworkedMultiplayerENet.new()
-	_error = network.create_server(4242, 4)
+	_error = network.create_server(_port, 4)
 	if _error != OK:
 		print("server creation failed: "+str(_error))
 	else:
@@ -51,7 +59,7 @@ func _on_Host_pressed():
 
 func _on_Join_pressed():
 	var network := NetworkedMultiplayerENet.new()
-	_error = network.create_client("127.0.0.1", 4242)
+	_error = network.create_client(_parse_ip(_code), _parse_port(_code))
 	if _error != OK:
 		print("client creation failed: "+_error)
 	else:
@@ -109,3 +117,33 @@ func _on_Shoot_pressed():
 
 func _on_Fullscreen_toggled(button_pressed:bool):
 	OS.window_fullscreen = button_pressed
+
+func _generate_port()->int:
+	var port := 0
+	for n in 6:
+		var number := randi()%10
+		if n > 0:
+			number *= 10^n
+		port += number*100
+	return port
+
+func _parse_ip(code:String)->String:
+	var ip := ""
+	var selecting := true
+	for c in code:
+		if c == _separation_character:
+			selecting = false
+		if selecting:
+			ip += c
+	return ip
+
+func _parse_port(code:String)->int:
+	var port_string := ""
+	var selecting := false
+	for c in code:
+		if selecting:
+			port_string += c
+		if c == _separation_character:
+			selecting = true
+	var port = int(port_string)
+	return port
