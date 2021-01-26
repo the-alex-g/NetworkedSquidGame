@@ -8,11 +8,13 @@ var _error
 var _input_change = Inputchange.NONE
 var _port := 0
 var _code
+var _addresses := {"X11":2, "Windows":3}
 
 func _ready():
 	randomize()
+	var address = _addresses[OS.get_name()]
 	_port = _generate_port()
-	$Address.text = str(IP.get_local_addresses()[2]+_separation_character+str(_port))
+	$Address.text = str(IP.get_local_addresses()[address]+_separation_character+str(_port))
 	$Camera2D.position = Vector2.ZERO
 	_error = get_tree().connect("connected_to_server", self, "_connected_to_server")
 	_error = get_tree().connect("connection_failed", self, "_connection_failed")
@@ -119,12 +121,9 @@ func _on_Fullscreen_toggled(button_pressed:bool):
 	OS.window_fullscreen = button_pressed
 
 func _generate_port()->int:
-	var port := 0
-	for n in 6:
-		var number := randi()%10
-		if n > 0:
-			number *= 10^n
-		port += number*100
+	var port = randi()%999999
+	while port < 100000:
+		port *= 10
 	return port
 
 func _parse_ip(code:String)->String:
