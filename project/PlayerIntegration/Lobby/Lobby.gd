@@ -81,6 +81,8 @@ func _connection_failed():
 func _player_connected(id:int):
 	print("player connected")
 	Global.rpc("add_player", id)
+	if get_tree().is_network_server():
+		Global.rpc_id(id, "update_colors", Global.colors, Global.player_colors)
 	Global.id = id
 
 func _player_disconnected(id:int):

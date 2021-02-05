@@ -23,3 +23,7 @@ func update_score(color):
 		score[color] += 1
 	else:
 		score[color] = 1
+
+remote func update_colors(new_colors:Array, new_player_colors:Dictionary):
+	player_colors = new_player_colors
+	colors = new_colors
