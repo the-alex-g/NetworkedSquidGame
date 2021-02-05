@@ -57,7 +57,8 @@ func _process(delta):
 			rpc("spawn_bullet")
 			spawn_bullet()
 		rotation_degrees += direction
-		rpc_unreliable("update_position", rotation_degrees)
+		if direction != 0.0:
+			rpc_unreliable("update_position", rotation_degrees)
 
 remote func update_position(new_rotation):
 	rotation_degrees = new_rotation

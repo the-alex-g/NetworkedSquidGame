@@ -72,42 +72,87 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -31.5
-margin_top = -34.0
-margin_right = 31.5
-margin_bottom = 34.0
+margin_left = -56.5
+margin_top = -46.5
+margin_right = 56.5
+margin_bottom = 80.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Host" type="Button" parent="VBoxContainer"]
-margin_right = 65.0
+margin_right = 117.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
+custom_colors/font_color_hover = Color( 0.494118, 0.639216, 0.505882, 1 )
 text = "Host"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Join" type="Button" parent="VBoxContainer"]
+[node name="Address" type="Label" parent="VBoxContainer"]
 margin_top = 25.0
-margin_right = 65.0
-margin_bottom = 46.0
+margin_right = 117.0
+margin_bottom = 40.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
+text = "at 127.0.0.1-4242"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join" type="Button" parent="VBoxContainer"]
+margin_top = 44.0
+margin_right = 117.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
+custom_colors/font_color_hover = Color( 0.494118, 0.639216, 0.505882, 1 )
 text = "Join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
-margin_top = 50.0
-margin_right = 65.0
-margin_bottom = 71.0
+margin_top = 69.0
+margin_right = 117.0
+margin_bottom = 90.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
+custom_colors/font_color_hover = Color( 0.494118, 0.639216, 0.505882, 1 )
 text = "Settings"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -76.0
+margin_top = -100.0
+margin_right = 76.0
+margin_bottom = -80.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/selection_color = Color( 0.2898, 0.63, 0.63, 1 )
+custom_colors/font_color_selected = Color( 0.5236, 0.68, 0.53924, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEditLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -76.0
+margin_top = -96.0
+margin_right = 76.0
+margin_bottom = -80.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.494118, 0.639216, 0.505882, 1 )
+text = "            Address"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, 350 )
@@ -152,6 +197,7 @@ margin_right = 21.0
 margin_bottom = 337.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
+custom_colors/font_color_hover = Color( 0.494118, 0.639216, 0.505882, 1 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -179,6 +225,7 @@ margin_right = 64.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
+custom_colors/font_color_hover = Color( 0.494118, 0.639216, 0.505882, 1 )
 text = "Change"
 
 [node name="Clockwise" type="Button" parent="HBoxContainer/VBoxContainer"]
@@ -187,6 +234,7 @@ margin_right = 64.0
 margin_bottom = 46.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
+custom_colors/font_color_hover = Color( 0.494118, 0.639216, 0.505882, 1 )
 text = "Change"
 
 [node name="Shoot" type="Button" parent="HBoxContainer/VBoxContainer"]
@@ -195,6 +243,7 @@ margin_right = 64.0
 margin_bottom = 71.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
+custom_colors/font_color_hover = Color( 0.494118, 0.639216, 0.505882, 1 )
 text = "Change"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
@@ -229,30 +278,36 @@ text = "Shoot: Space Bar"
 valign = 2
 
 [node name="Fullscreen" type="CheckButton" parent="."]
-margin_left = 275.0
-margin_top = 783.0
-margin_right = 351.0
-margin_bottom = 823.0
+margin_left = 257.539
+margin_top = 821.891
+margin_right = 409.539
+margin_bottom = 861.891
 custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_hover_pressed = Color( 0.494118, 0.639216, 0.505882, 1 )
 custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
+custom_colors/font_color_hover = Color( 0.494118, 0.639216, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.772549, 1, 0.796078, 1 )
 text = "Fullscreen"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Address" type="Label" parent="."]
-margin_left = 395.0
-margin_top = 321.0
-margin_right = 492.0
-margin_bottom = 335.0
-text = "127.0.0.1-4242"
-
-[node name="TextEdit" type="TextEdit" parent="."]
-margin_left = 399.0
-margin_top = 345.0
-margin_right = 698.0
-margin_bottom = 385.0
-text = "127.0.0.1-4242"
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -48.0
+margin_top = -30.0
+margin_right = 48.0
+margin_bottom = -10.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.494118, 0.639216, 0.505882, 1 )
+custom_colors/font_color_hover = Color( 0.772549, 1, 0.796078, 1 )
+text = "copy address"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="color_picked" from="." to="WaitingArea" method="_on_Lobby_color_picked"]
 [connection signal="done" from="ColorSelector" to="." method="_on_ColorSelector_done"]
 [connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_Host_pressed"]
@@ -264,3 +319,4 @@ text = "127.0.0.1-4242"
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Clockwise" to="." method="_on_Clockwise_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Shoot" to="." method="_on_Shoot_pressed"]
 [connection signal="toggled" from="Fullscreen" to="." method="_on_Fullscreen_toggled"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

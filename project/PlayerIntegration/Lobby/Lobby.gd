@@ -9,14 +9,17 @@ var _input_change = Inputchange.NONE
 var _port := 0
 var _code
 var _addresses := {"X11":2, "Windows":3}
+var _address := ""
+var on_other_screen := false
 
 signal color_picked
 
 func _ready():
 	randomize()
 	var address = _addresses[OS.get_name()]
+	_address = IP.get_local_addresses()[address]
 	_port = _generate_port()
-	$Address.text = str(IP.get_local_addresses()[address]+_separation_character+str(_port))
+	$VBoxContainer/Address.text = "at "+str(_address+_separation_character+str(_port))
 	$Camera2D.position = Vector2.ZERO
 	_error = get_tree().connect("connected_to_server", self, "_connected_to_server")
 	_error = get_tree().connect("connection_failed", self, "_connection_failed")
@@ -39,6 +42,10 @@ func _input(event:InputEvent):
 
 func _process(_delta):
 	_code = $TextEdit.text
+	if _code != "" or on_other_screen:
+		$TextEditLabel.hide()
+	else:
+		$TextEditLabel.show()
 	$HBoxContainer/VBoxContainer2/Counterclockwise.text = "Counterclockwise: "+get_key(InputMap.get_action_list("counterclockwise"))
 	$HBoxContainer/VBoxContainer2/Clockwise.text = "Clockwise: "+get_key(InputMap.get_action_list("clockwise"))
 	$HBoxContainer/VBoxContainer2/Shoot.text = "Shoot: "+get_key(InputMap.get_action_list("shoot"))
@@ -92,22 +99,34 @@ func _server_connection_lost():
 	print("server connection lost")
 
 func next():
+	on_other_screen = true
 	$VBoxContainer.hide()
+	$Button.hide()
+	$TextEdit.hide()
+	$TextEditLabel.hide()
 	$VBoxContainer/Host.disabled = true
 	$VBoxContainer/Join.disabled = true
 	$VBoxContainer/Settings.disabled = true
 	$AnimationPlayer.play("CameraSlide")
 
 func _on_Settings_pressed():
+	on_other_screen = true
 	$AnimationPlayer.play("Settings")
 	$VBoxContainer.hide()
+	$Button.hide()
+	$TextEdit.hide()
+	$TextEditLabel.hide()
 
 func _on_Back_pressed():
 	$AnimationPlayer.play("Return")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Return":
+		on_other_screen = false
 		$VBoxContainer.show()
+		$Button.show()
+		$TextEdit.show()
+		$TextEditLabel.show()
 
 func _on_Counterclockwise_pressed():
 	InputMap.action_erase_events("counterclockwise")
@@ -155,3 +174,6 @@ func _on_ColorSelector_done():
 	$AnimationPlayer.play_backwards("CameraSlide")
 	yield(get_tree().create_timer(1), "timeout")
 	emit_signal("color_picked")
+
+func _on_Button_pressed():
+	OS.set_clipboard(_address+_separation_character+str(_port))
