@@ -10,6 +10,8 @@ var _port := 0
 var _code
 var _addresses := {"X11":2, "Windows":3}
 
+signal color_picked
+
 func _ready():
 	randomize()
 	var address = _addresses[OS.get_name()]
@@ -121,8 +123,8 @@ func _on_Fullscreen_toggled(button_pressed:bool):
 	OS.window_fullscreen = button_pressed
 
 func _generate_port()->int:
-	var port = randi()%999999
-	while port < 100000:
+	var port = randi()%65535
+	while port < 1000:
 		port *= 10
 	return port
 
@@ -146,3 +148,8 @@ func _parse_port(code:String)->int:
 			selecting = true
 	var port = int(port_string)
 	return port
+
+func _on_ColorSelector_done():
+	$AnimationPlayer.play_backwards("CameraSlide")
+	yield(get_tree().create_timer(1), "timeout")
+	emit_signal("color_picked")

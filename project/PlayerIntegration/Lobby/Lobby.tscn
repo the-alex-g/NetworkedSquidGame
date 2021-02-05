@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://PlayerIntegration/Lobby/Lobby.gd" type="Script" id=1]
 [ext_resource path="res://Art/Particles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://PlayerIntegration/PlayerGeneration/ColorSelector.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/Font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://PlayerIntegration/WaitingArea/WaitingArea.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "CameraSlide"
@@ -59,6 +60,8 @@ __meta__ = {
 
 [node name="Particles" parent="." instance=ExtResource( 2 )]
 position = Vector2( 349.333, 348.74 )
+
+[node name="WaitingArea" parent="." instance=ExtResource( 5 )]
 
 [node name="ColorSelector" parent="." instance=ExtResource( 3 )]
 margin_top = -349.627
@@ -250,6 +253,8 @@ margin_top = 345.0
 margin_right = 698.0
 margin_bottom = 385.0
 text = "127.0.0.1-4242"
+[connection signal="color_picked" from="." to="WaitingArea" method="_on_Lobby_color_picked"]
+[connection signal="done" from="ColorSelector" to="." method="_on_ColorSelector_done"]
 [connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_Host_pressed"]
 [connection signal="pressed" from="VBoxContainer/Join" to="." method="_on_Join_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]

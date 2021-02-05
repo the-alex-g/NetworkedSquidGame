@@ -14,6 +14,8 @@ var _g := 1.0
 var color := Color(0,0,0,1)
 var _error
 
+signal done
+
 func _ready():
 	$AnimationPlayer.play("Wave_Arms")
 
@@ -29,4 +31,4 @@ func _process(_delta):
 
 func _on_ConfirmButton_pressed():
 	Global.rpc("set_player_color", get_tree().get_network_unique_id(), color)
-	_error = get_tree().change_scene("res://PlayerIntegration/WaitingArea/WaitingArea.tscn")
+	emit_signal("done")
