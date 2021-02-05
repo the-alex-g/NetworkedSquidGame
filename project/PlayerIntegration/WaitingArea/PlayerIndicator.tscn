@@ -67,4 +67,6 @@ anims/Fade = SubResource( 1 )
 [node name="WaveArms" type="AnimationPlayer" parent="."]
 anims/Wave_Arms = ExtResource( 4 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [editable path="SquidBody"]
