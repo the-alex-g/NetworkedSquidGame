@@ -14,5 +14,5 @@ func _process(_delta):
 	if color != null:
 		$AnimationPlayer.stop()
 		$Tween.interpolate_property($SquidBody/ColoredSquidParts, "modulate", null, color, 0.5)
+		$Tween.interpolate_property($SquidBody/Sprite, "modulate", null, Color(1,1,1,0), 0.5)
 		$Tween.start()
-		$SquidBody/Sprite.hide()
