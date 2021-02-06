@@ -4,7 +4,7 @@
 [ext_resource path="res://Art/SmallCircle.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 6.85273
+radius = 5.61896
 
 [node name="Bullet" type="Area2D"]
 pause_mode = 2
@@ -14,8 +14,23 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -0.167044, -0.167043 )
+scale = Vector2( 0.504437, 0.515574 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="Left" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Left"]
+scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( -0.066391, -35.9289, -9.3267, -34.6661, -18.0258, -31.0181, -25.4621, -25.4058, -31.0744, -18.2501, -34.8627, -9.55101, -36.1255, 0.270535, -34.8627, 9.81146, -31.2147, 18.3702, -25.1815, 25.9469, -19.2886, 30.577, -9.18639, 34.6459, -0.066391, 36.049 )
+
+[node name="Right" type="Area2D" parent="."]
+rotation = 3.14159
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Right"]
+scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( -0.066391, -35.9289, -9.3267, -34.6661, -18.0258, -31.0181, -25.4621, -25.4058, -31.0744, -18.2501, -34.8627, -9.55101, -36.1255, 0.270535, -34.8627, 9.81146, -31.2147, 18.3702, -25.1815, 25.9469, -19.2886, 30.577, -9.18639, 34.6459, -0.066391, 36.049 )
 [connection signal="area_entered" from="." to="." method="_on_Bullet_area_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -87,3 +87,6 @@ func _on_Player_area_entered(area):
 	if area is Bullet and not invincible:
 		if area.color != color:
 			Global.update_score(area.color)
+
+func is_player():
+	pass
