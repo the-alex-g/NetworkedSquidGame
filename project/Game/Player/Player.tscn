@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Game/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Art/SquidBody.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Player/RadialProgressBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Music/Shoot.wav" type="AudioStream" id=4]
 [ext_resource path="res://Wave_Arms.tres" type="Animation" id=5]
+[ext_resource path="res://Music/Hit.wav" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -171,6 +173,14 @@ autostart = true
 
 [node name="RadialProgressBar" parent="." instance=ExtResource( 3 )]
 position = Vector2( -16, -330 )
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 5.0
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = 15.0
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]

@@ -4,16 +4,16 @@
 [ext_resource path="res://Art/LargeCircle.png" type="Texture" id=2]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.390728, 0.695364 )
-colors = PoolColorArray( 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1 )
+offsets = PoolRealArray( 0, 0.390728, 0.695364, 0.993378 )
+colors = PoolColorArray( 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0.976471, 1, 1, 0 )
 
 [sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0, 0.437086, 0.781457 )
-colors = PoolColorArray( 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0 )
+offsets = PoolRealArray( 0, 0.437086, 0.774834, 1 )
+colors = PoolColorArray( 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0.835294, 1, 0.835294, 0 )
 
 [sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0, 0.370861, 0.715232 )
-colors = PoolColorArray( 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1 )
+offsets = PoolRealArray( 0, 0.370861, 0.715232, 0.993378 )
+colors = PoolColorArray( 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0.976471, 1, 0.976471, 0 )
 
 [node name="Particles" type="Node2D"]
 pause_mode = 2

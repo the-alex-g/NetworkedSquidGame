@@ -64,6 +64,7 @@ remote func update_position(new_rotation):
 	rotation_degrees = new_rotation
 
 remote func spawn_bullet():
+	$ShootSound.play()
 	var bullet := _Bullet.instance()
 	bullet.rotation_degrees = rotation_degrees
 	bullet.position = _bullet_spawn_point.get_global_transform().origin
@@ -86,6 +87,7 @@ func _on_InvincibilityTimer_timeout():
 func _on_Player_area_entered(area):
 	if area is Bullet and not invincible:
 		if area.color != color:
+			$HitSound.play()
 			Global.update_score(area.color)
 
 func is_player():
