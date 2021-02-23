@@ -293,6 +293,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Mute" type="CheckButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -90.8492
+margin_top = 97.1716
+margin_right = 61.1508
+margin_bottom = 137.172
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color_hover_pressed = Color( 0.494118, 0.639216, 0.505882, 1 )
+custom_colors/font_color = Color( 0.772549, 1, 0.796078, 1 )
+custom_colors/font_color_hover = Color( 0.494118, 0.639216, 0.505882, 1 )
+custom_colors/font_color_pressed = Color( 0.772549, 1, 0.796078, 1 )
+text = "Mute"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
@@ -325,4 +344,5 @@ autoplay = true
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Clockwise" to="." method="_on_Clockwise_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Shoot" to="." method="_on_Shoot_pressed"]
 [connection signal="toggled" from="Fullscreen" to="." method="_on_Fullscreen_toggled"]
+[connection signal="toggled" from="Mute" to="." method="_on_Mute_toggled"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -59,7 +59,7 @@ func get_key(events:Array)->String:
 
 func _on_Host_pressed():
 	var network := NetworkedMultiplayerENet.new()
-	_error = network.create_server(_port, 4)
+	_error = network.create_server(4242, 4)#_port, 4)
 	if _error != OK:
 		print("server creation failed: "+str(_error))
 	else:
@@ -70,7 +70,7 @@ func _on_Host_pressed():
 
 func _on_Join_pressed():
 	var network := NetworkedMultiplayerENet.new()
-	_error = network.create_client(_parse_ip(_code), _parse_port(_code))
+	_error = network.create_client("127.0.0.1", 4242)#_parse_ip(_code), _parse_port(_code))
 	if _error != OK:
 		print("client creation failed: "+_error)
 	else:
@@ -177,3 +177,7 @@ func _on_ColorSelector_done():
 
 func _on_Button_pressed():
 	OS.set_clipboard(_address+_separation_character+str(_port))
+
+
+func _on_Mute_toggled(button_pressed:bool):
+	AudioServer.set_bus_mute(0,button_pressed)
